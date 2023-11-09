@@ -34,7 +34,7 @@ jobs:
       id-token: write
     environment:
       name: production
-      url: ${{ steps.deploy.outputs.page_url }}
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
       - name: check out repository code
@@ -56,5 +56,6 @@ jobs:
         with:
           path: "./out"
       - name: deploy pages
+      - id: deployment
         uses: actions/deploy-pages@v1
         
